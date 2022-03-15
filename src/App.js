@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Counter } from './components/counter'
+import './App.css'
+import { useState } from 'react'
 
+import { Button } from './style/buttons';
 function App() {
+  const [shows, setShows] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="box">
+      <h1 className='h3'>"Welcome To Our Stop Watch"</h1>
+      <diV className="App">
+        {shows ? <Counter /> : ""}
+        <Button
+          onClick={() => {
+            setShows(!shows);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          {shows ? "showTimer" : "Hide timer"}
+        </Button>
+      </diV>
     </div>
   );
 }
 
-export default App;
+export default App
+
+// stop we have to clear interval 
+// start we start starter again 
+// reset clear id and set counyter one
+
